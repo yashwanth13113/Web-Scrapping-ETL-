@@ -2,18 +2,15 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import json
-
-
+#Lets we give the url first...
 url = "https://quotes.toscrape.com/"
-
-
 response = requests.get(url)
-
+#checking weather the url is valid or not;
 if response.status_code == 200:
     soup = BeautifulSoup(response.text, 'html.parser')
 
     
-    quotes_data = []
+    quotes_data = [] #list inside it dictionary
     quotes = soup.find_all('span', class_='text')
     authors = soup.find_all('small', class_='author')
 
@@ -38,3 +35,4 @@ else:
 print("this is my web extractor script that fetches quotes from a website and saves them in CSV and JSON formats.");
 print("Thank you for using this script! Have a great day! :)");
 print(" regards yashwanth");
+
